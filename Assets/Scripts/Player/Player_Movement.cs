@@ -6,12 +6,14 @@ public class Player_Movement : MonoBehaviour
 {
     //Public Variables
     public Transform cameraAim;
-    public float walkSpeed, runSpeed, rotationSpeed;
+    public float walkSpeed, runSpeed, jumpForce, rotationSpeed;
     public bool canMove;
+    public GroundDetector groundDetector;
 
     //Private Variables
-    private Vector3 vectorMovement;
+    private Vector3 vectorMovement, verticalForce;
     private float speed;
+    private bool isGrounded;
     private CharacterController characterController;
 
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class Player_Movement : MonoBehaviour
         //Initialization of variables
         characterController = GetComponent<CharacterController>();
         speed = walkSpeed;
+        verticalForce = Vector3.zero;
         vectorMovement = Vector3.zero;
     }
 
@@ -32,8 +35,10 @@ public class Player_Movement : MonoBehaviour
             Walk();
             Run();
             AlignPlayer();
+            Jump();
         }
         Gravity();
+        CheckGround();
     }
 
     //Walking Function
@@ -67,10 +72,33 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
+    //Jump Function
+    void Jump()
+    {
+        //If Player is touching ground and presses Spacebar
+        if(isGrounded && Input.GetAxis("Jump") > 0f)
+        {
+            verticalForce = new Vector3(0f, jumpForce, 0f);
+            isGrounded = false;
+        }
+    }
+
     //Provisional gravity Function
     void Gravity()
     {
-        characterController.Move(new Vector3(0f, -4f * Time.deltaTime, 0f));
+        //characterController.Move(new Vector3(0f, -4f * Time.deltaTime, 0f));
+        //If Player is not touching ground
+        if(!isGrounded)
+        {
+            verticalForce += Physics.gravity * Time.deltaTime;
+        }
+        else
+        {
+            verticalForce = new Vector3 (0f, -2f, 0f);
+        }
+
+        //Applies vertical force
+        characterController.Move(verticalForce * Time.deltaTime);
     }
 
     //Align player to where camera is facing Function
@@ -81,5 +109,11 @@ public class Player_Movement : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(vectorMovement), rotationSpeed * Time.deltaTime);
         }
+    }
+
+    //Gets isGrounded value from detector Function
+    void CheckGround()
+    {
+        isGrounded = groundDetector.GetIsGrounded();
     }
 }

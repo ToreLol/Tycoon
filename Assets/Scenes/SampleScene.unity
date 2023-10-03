@@ -163,7 +163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.8363, y: -20}
+  m_AnchoredPosition: {x: 121.8363, y: -16}
   m_SizeDelta: {x: 243.6726, y: 34.5974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85149873
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b951f4c6fcfcf4d9a5d35dbceb21ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensibility: 300
+  sensibility: 1000
   cameraJointY: {fileID: 1981336958}
   targetObject: {fileID: 765348440}
   canRotate: 1
@@ -2877,7 +2877,7 @@ GameObject:
   - component: {fileID: 1581469741}
   - component: {fileID: 1581469740}
   - component: {fileID: 1581469739}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2892,8 +2892,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581469737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.447, z: 0.435}
-  m_LocalScale: {x: 0.68175, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0.447, z: 0.371}
+  m_LocalScale: {x: 0.81878173, y: 0.2, z: 0.26332}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 765348440}
@@ -2940,7 +2940,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e2af2f22680eecd47b7fff524b0f4c16, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4029,6 +4029,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ee4598806a873e44b47a6727c3c8a09, type: 3}
+--- !u!1 &2058260491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058260492}
+  - component: {fileID: 2058260493}
+  m_Layer: 3
+  m_Name: GroundDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058260492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058260491}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 765348440}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058260493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058260491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1090470dd57682a4abf8313d758d54a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.5
+  detectedLayers:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!1001 &2123448316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4199,6 +4247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5443113475489019703, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6466289307128654642, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
       propertyPath: runSpeed
       value: 10
@@ -4208,13 +4260,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 914971599}
     - target: {fileID: 6466289307128654642, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466289307128654642, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
       propertyPath: walkSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6466289307128654642, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
       propertyPath: rotationSpeed
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6466289307128654642, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
+      propertyPath: groundDetector
+      value: 
+      objectReference: {fileID: 2058260493}
+    - target: {fileID: 6535047766216817737, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 862b4bd4306d1eb40b4a3dea9adb0e8a, type: 2}
     - target: {fileID: 8893456707679645059, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4265,6 +4329,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8893456707679645059, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1581469738}
+    - targetCorrespondingSourceObject: {fileID: 8893456707679645059, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2058260492}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03e647616d35a7e43933a492f53d0822, type: 3}
 --- !u!1001 &4777865253211870819
