@@ -12,7 +12,7 @@ public class Player_Movement : MonoBehaviour
 
     //Private Variables
     private Vector3 vectorMovement, verticalForce;
-    private float speed;
+    private float speed, currentSpeed;
     private bool isGrounded;
     private CharacterController characterController;
 
@@ -21,7 +21,8 @@ public class Player_Movement : MonoBehaviour
     {
         //Initialization of variables
         characterController = GetComponent<CharacterController>();
-        speed = walkSpeed;
+        speed = 0f;
+        currentSpeed = 0f;
         verticalForce = Vector3.zero;
         vectorMovement = Vector3.zero;
     }
@@ -54,8 +55,11 @@ public class Player_Movement : MonoBehaviour
         //Move where camera faces
         vectorMovement = cameraAim.TransformDirection(vectorMovement);
 
+        //Saves current speed with smoothness
+        currentSpeed = Mathf.Lerp(currentSpeed, vectorMovement.magnitude * speed, 10f * Time.deltaTime);
+
         //Move player
-        characterController.Move(vectorMovement * speed * Time.deltaTime);
+        characterController.Move(vectorMovement * currentSpeed * Time.deltaTime);
     }
     
     //Running function
@@ -115,5 +119,10 @@ public class Player_Movement : MonoBehaviour
     void CheckGround()
     {
         isGrounded = groundDetector.GetIsGrounded();
+    }
+
+    public float GetCurrentSpeed()
+    {
+        return currentSpeed;
     }
 }
