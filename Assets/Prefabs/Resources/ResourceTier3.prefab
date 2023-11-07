@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5486306731303307534}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4168297682845470250
 MeshFilter:
@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.92, y: 1.27, z: 0.27}
-  m_Center: {x: 0, y: 0.09, z: 0}
+  m_Size: {x: 0.07950208, y: 0.31047732, z: 1.3539135}
+  m_Center: {x: 0.022601856, y: 0.015292588, z: -0.018711105}
 --- !u!54 &7983549180430249246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -216,6 +216,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987321337040897024, guid: 81258334ac6836f4689a82bfc65e56ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b2dfdf44d328a59449b16f2b9d82492c, type: 2}
+    - target: {fileID: 3994788661148907300, guid: 81258334ac6836f4689a82bfc65e56ef, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4157798734872115665, guid: 60d91f925d8c1e442bb6596dfb94ffff, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

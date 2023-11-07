@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 1543567990010097387}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8950743132402524450
 MeshFilter:
@@ -156,6 +156,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8923123664810266868}
     m_Modifications:
+    - target: {fileID: 5945381521170281083, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c16b6e19b642c247ba765631635ff9e, type: 2}
+    - target: {fileID: 5954816233231345701, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7182689631186222527, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
     - target: {fileID: 5967409255052152475, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_Name
       value: Potato_Mid__250_Tris_
@@ -166,15 +174,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969922652027510509, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.92766064
       objectReference: {fileID: 0}
     - target: {fileID: 5969922652027510509, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.92766064
       objectReference: {fileID: 0}
     - target: {fileID: 5969922652027510509, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.92766064
       objectReference: {fileID: 0}
     - target: {fileID: 5969922652027510509, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -182,11 +190,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969922652027510509, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.08609
       objectReference: {fileID: 0}
     - target: {fileID: 5969922652027510509, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0139
       objectReference: {fileID: 0}
     - target: {fileID: 5969922652027510509, guid: ed03bbcbcee198b4fa6c7e411cd7ffa2, type: 3}
       propertyPath: m_LocalRotation.w
